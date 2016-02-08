@@ -9,7 +9,7 @@ public class TextController : MonoBehaviour {
 	private States myState;
 	//private enum Sprites {Tatt};
 	//private Sprite Tatt;
-	//test
+	//test test
 
 	// Use this for initialization
 	void Start () {
@@ -22,35 +22,37 @@ public class TextController : MonoBehaviour {
 	void Update ()
 	{
 		print (myState);
-		if      (myState == States.intro)       {state_intro ();}
-		else if (myState == States.cell)        {state_cell ();}
-		else if (myState == States.toilet_0)    {state_toilet_0 ();} 
-		else if (myState == States.tats_0)      {state_tats_0 ();} 
-		else if (myState == States.cell_box)    {state_cell_box ();} 
-		else if (myState == States.cell_box_1)   {state_cell_box_1 ();} 
-		else if (myState == States.toilet_1)    {state_toilet_1 ();} 
-		else if (myState == States.toilet_2)    {state_toilet_2 ();}
-		else if (myState == States.tats_1)      {state_tats_1 ();}
-		else if (myState == States.freedom)     {state_freedom ();}
-		else if (myState == States.cell_1)      {state_cell_1 ();}
-		else if (myState == States.fap)         {state_fap ();}
-		else if (myState == States.fap_1)       {state_fap_1 ();}
-		else if (myState == States.box)         {state_box ();}
-		else if (myState == States.box_throw)   {state_box_throw ();}
-		else if (myState == States.box_shake)   {state_box_shake ();}
-		else if (myState == States.lose)        {state_lose ();}
+		if      (myState == States.intro)       {intro ();}
+		else if (myState == States.cell)        {cell ();}
+		else if (myState == States.toilet_0)    {toilet_0 ();} 
+		else if (myState == States.tats_0)      {tats_0 ();} 
+		else if (myState == States.cell_box)    {cell_box ();} 
+		else if (myState == States.cell_box_1)   {cell_box_1 ();} 
+		else if (myState == States.toilet_1)    {toilet_1 ();} 
+		else if (myState == States.toilet_2)    {toilet_2 ();}
+		else if (myState == States.tats_1)      {tats_1 ();}
+		else if (myState == States.freedom)     {freedom ();}
+		else if (myState == States.cell_1)      {cell_1 ();}
+		else if (myState == States.fap)         {fap ();}
+		else if (myState == States.fap_1)       {fap_1 ();}
+		else if (myState == States.box)         {box ();}
+		else if (myState == States.box_throw)   {box_throw ();}
+		else if (myState == States.box_shake)   {box_shake ();}
+		else if (myState == States.lose)        {lose ();}
 
 
 	
 	}
 
-	void state_intro ()	{
+	#region State handler methods
+
+	void intro ()	{
 		text.text = "What the actual Fuck. Where am I... Is this a drea.. Blur.. am I in a some sort of lab.. Vision is bluring. I cant move" +
 					", but im going in and out of concieness. *Darkness* I need to wake up, but how?\n\n Find The key that wakes you up!\n\n Now!";
 		if (Input.GetKeyDown(KeyCode.Tab)) {myState = States.cell;}
 	}
 
-	void state_cell ()
+	void cell ()
 	{
 		text.text = "You awake suddenly. Sweat dripping down your body. You become aware that you are in an unknown location. What do I re" +
 		"member last, you think to yourself. Nothing. What is my name? Nothing. Where am I? With this realization you jump up and " +
@@ -63,34 +65,34 @@ public class TextController : MonoBehaviour {
 		"Left arrow:  Try to get a better look at these tatoos\n\n" +
 		"Right arrow: Might as well FAP it";
 
-		if (Input.GetKeyDown (KeyCode.UpArrow))        {myState = States.toilet_0;} 
-		else if (Input.GetKeyDown (KeyCode.DownArrow)) {myState = States.box;}
-		else if(Input.GetKeyDown (KeyCode.LeftArrow))  {myState = States.tats_0;}
-		else if(Input.GetKeyDown (KeyCode.RightArrow))  {myState = States.fap;}
+		if 		(Input.GetKeyDown (KeyCode.UpArrow))        {myState = States.toilet_0;} 
+		else if (Input.GetKeyDown (KeyCode.DownArrow)) 		{myState = States.box;}
+		else if (Input.GetKeyDown (KeyCode.LeftArrow))  	{myState = States.tats_0;}
+		else if (Input.GetKeyDown (KeyCode.RightArrow))     {myState = States.fap;}
 
 	}
 
-	void state_toilet_0 ()
+	void toilet_0 ()
 	{
 		text.text = "You approach the toilet and look in side. you see something insite the bowl that looks green and pointy. Did someone forget to flush?" +
 		"\n\nUp arrow:    Inspect the toilet further?" +
 		"\n\nDown arrow:  Return to roaming this cell";
 
-		if (Input.GetKeyDown (KeyCode.UpArrow))        {myState = States.toilet_1;} 
-		else if (Input.GetKeyDown (KeyCode.DownArrow)) {myState = States.cell_1;}
+		if 		(Input.GetKeyDown (KeyCode.UpArrow))        {myState = States.toilet_1;} 
+		else if (Input.GetKeyDown (KeyCode.DownArrow))      {myState = States.cell_1;}
 	}
 
-	void state_tats_0 ()
+	void tats_0 ()
 	{
 		//print (gameObject.Tatt);
 		text.text = "You look down at your tatoos. Upon further inspection you realize that your whole body is covered with the same few symbols repeated." +
 					" Its like someone copy and pasted the same tattoo all over my body... Is this some kind of cruel joke you think to yourself. The rep" +
 			        "eating symbols are a box, an equal sign, and some symbol that ive never seen before: ☭.\n\nDown arrow:   Return to roaming cell";
 
-		if (Input.GetKeyDown (KeyCode.DownArrow))     {myState = States.cell_1;}
+		if 		(Input.GetKeyDown (KeyCode.DownArrow))     {myState = States.cell_1;}
 	}
 
-	void state_fap ()
+	void fap ()
 	{
 		text.text = "You look down at your flacid penis. It's been a while old friend you think, but you have no clue how long its actually been and you " +
 					"dont really recognise it. Has it always leaned to the right? That seems wrong but I really dont have a way to verify that feeling " +
@@ -99,19 +101,19 @@ public class TextController : MonoBehaviour {
 					"\n\nUp arrow:    Keep going this is kinda kinky" +
 					"\n\nDown arrow:  Bail out and focus on whats improtant here";
 
-		if (Input.GetKeyDown (KeyCode.UpArrow))        {myState = States.fap_1;} 
-		else if (Input.GetKeyDown (KeyCode.DownArrow)) {myState = States.cell_1;}
+		if 		(Input.GetKeyDown (KeyCode.UpArrow))        {myState = States.fap_1;} 
+		else if (Input.GetKeyDown (KeyCode.DownArrow))      {myState = States.cell_1;}
 
 	}
 
-	void state_fap_1 ()
+	void fap_1 ()
 	{
 		text.text = "You sick fuck.\n\n Press the down arrow now, so we can get back to our actual objective. Thanks! :)";
 
-		if (Input.GetKeyDown (KeyCode.DownArrow)) {myState = States.cell_1;}
+		if 		(Input.GetKeyDown (KeyCode.DownArrow))	    {myState = States.cell_1;}
 	}
 
-	void state_cell_1 ()
+	void cell_1 ()
 	{
 		text.text = "Okay back to roaming! I feel an intense desire to get the fuck out of here.. Side thought though: Did I always swear this fucking much" +
 					"? Hard to really tell with out any memories, but I'm sure this situation is a good time to start. Plus, there is no one here to" +
@@ -121,25 +123,25 @@ public class TextController : MonoBehaviour {
 					"Left arrow:  Try to get a better look at these tatoos\n\n" +
 					"Right arrow: Might as well FAP it";
 
-		if (Input.GetKeyDown (KeyCode.UpArrow))        {myState = States.toilet_0;} 
-		else if (Input.GetKeyDown (KeyCode.DownArrow)) {myState = States.box;}
-		else if(Input.GetKeyDown (KeyCode.LeftArrow))  {myState = States.tats_0;}
-		else if(Input.GetKeyDown (KeyCode.RightArrow))  {myState = States.fap;}
+		if 		(Input.GetKeyDown (KeyCode.UpArrow))        {myState = States.toilet_0;} 
+		else if (Input.GetKeyDown (KeyCode.DownArrow)) 		{myState = States.box;}
+		else if (Input.GetKeyDown (KeyCode.LeftArrow))      {myState = States.tats_0;}
+		else if (Input.GetKeyDown (KeyCode.RightArrow))     {myState = States.fap;}
 	}
 
-	void state_cell_box ()
+	void cell_box ()
 	{
 		text.text = "YAY! I got my first item, I bet i'll level up soon at this rate! *do a little dance* *get schwifty* What do I do now?\n\n" +
 					"Up arrow:    Throw the box\n\n" +
 					"Down arrow:  Shake the small box\n\n" +
 					"Right arrow: I still have more to explore, Ill deal with the box in a hot minute";
 
-		if (Input.GetKeyDown (KeyCode.UpArrow))        {myState = States.box_throw;} 
-		else if (Input.GetKeyDown (KeyCode.DownArrow)) {myState = States.box_shake;}
-		else if(Input.GetKeyDown (KeyCode.RightArrow)) {myState = States.cell_box_1;}
+		if 		(Input.GetKeyDown (KeyCode.UpArrow))        {myState = States.box_throw;} 
+		else if (Input.GetKeyDown (KeyCode.DownArrow))  	{myState = States.box_shake;}
+		else if (Input.GetKeyDown (KeyCode.RightArrow)) 	{myState = States.cell_box_1;}
 	}
 
-	void state_box_throw ()
+	void box_throw ()
 	{
 		text.text = "You throw the box as hard as you can against the wall and hear a deafening shatter. Part of the cell wall that looked like " +
 					"metal shattered like glass and exposed a barred door! You walk over to inspect it and to look for the box. The box looks like it" +
@@ -148,28 +150,28 @@ public class TextController : MonoBehaviour {
 					"Up arrow:   TURN THAT KEY!\n\n" +
 					"Down arrow:  Do nothing (I want to rot in here)";
 
-			if (Input.GetKeyDown (KeyCode.UpArrow))        {myState = States.freedom;}
-			else if (Input.GetKeyDown (KeyCode.DownArrow)) {myState = States.lose;}
+			if 		(Input.GetKeyDown (KeyCode.UpArrow))        {myState = States.freedom;}
+			else if (Input.GetKeyDown (KeyCode.DownArrow)) 		{myState = States.lose;}
 	}
 
-	void state_box_shake ()
+	void box_shake ()
 	{
 		text.text = "*shake* *shake* *clink* *clank* *wank* There is definatly something in here. It sounds metal...\n\n" +
 					"Up arrow:    Throw this box\n\n" +
 					"Down arrow:  Do nothing (I want to rot in here)\n\n" +
 					"Right arrow: I still have more to explore, Ill deal with the box in a hot minute";
-		if (Input.GetKeyDown (KeyCode.UpArrow))        {myState = States.box_throw;} 
-		else if (Input.GetKeyDown (KeyCode.DownArrow)) {myState = States.lose;}
-		else if(Input.GetKeyDown (KeyCode.RightArrow)) {myState = States.cell_box_1;}
+		if 		(Input.GetKeyDown (KeyCode.UpArrow))        {myState = States.box_throw;} 
+		else if (Input.GetKeyDown (KeyCode.DownArrow)) 		{myState = States.lose;}
+		else if (Input.GetKeyDown (KeyCode.RightArrow)) 	{myState = States.cell_box_1;}
 	}
 
-	void state_lose ()
+	void lose ()
 	{
 		text.text = "Game Over Noob\n\n Press the F key to start over.\n\n Yes, the Fkey is for FAILURE.";
-		if(Input.GetKeyDown (KeyCode.F))               {myState = States.intro;}
+		if 		(Input.GetKeyDown (KeyCode.F))               {myState = States.intro;}
 	}
 
-	void state_cell_box_1 ()
+	void cell_box_1 ()
 	{
 		text.text = "Ahh I guess, I'm the completionist type of person when it comes to video game... *cough* *cough* I mean real life. What else should I" +
 					" explore?\n\n" +
@@ -177,20 +179,20 @@ public class TextController : MonoBehaviour {
 					"Left arrow:  Tattoo\n\n" +
 					"Right arrow: FAP";
 
-		if (Input.GetKeyDown (KeyCode.UpArrow))         {myState = States.toilet_0;} 
-		else if(Input.GetKeyDown (KeyCode.LeftArrow))   {myState = States.tats_0;}
-		else if(Input.GetKeyDown (KeyCode.RightArrow))  {myState = States.fap;}
+		if 		(Input.GetKeyDown (KeyCode.UpArrow))         {myState = States.toilet_0;} 
+		else if (Input.GetKeyDown (KeyCode.LeftArrow))  	 {myState = States.tats_0;}
+		else if (Input.GetKeyDown (KeyCode.RightArrow))  	 {myState = States.fap;}
 
 	}
 
-	void state_box ()
+	void box ()
 	{
 		text.text = "You approach the box cautiously and pick it up. It looks extremely well crafted. It looks like it could be made of wood but has no seams" +
 					". Although, tapping the box makes a sound closer to tapping on glass or wood.\n\n Down arrow:  Collect item and return";
-		if (Input.GetKeyDown (KeyCode.DownArrow))     {myState = States.cell_box;}
+		if 		(Input.GetKeyDown (KeyCode.DownArrow))      {myState = States.cell_box;}
 	}
 
-	void state_toilet_1 ()
+	void toilet_1 ()
 	{
 		text.text = "Ooookay. Interesting choice I just made. Even surprised myself, but that is bound to happen since I dont know who the fuck I am. I am" +
 					" actually approaching the green thing in the toilet to get a closer look.... And holy shit, it just moved. That the actual eff. It lo" +
@@ -198,11 +200,11 @@ public class TextController : MonoBehaviour {
 					"Up arrow:    Grab the tail\n\n" +
 					"Down arrow:  Back the fuck up";
 
-		if (Input.GetKeyDown (KeyCode.DownArrow))     {myState = States.cell_1;}
-		else if (Input.GetKeyDown (KeyCode.UpArrow))  {myState = States.toilet_2;}
+		if 		(Input.GetKeyDown (KeyCode.DownArrow))      {myState = States.cell_1;}
+		else if (Input.GetKeyDown (KeyCode.UpArrow))  		{myState = States.toilet_2;}
 	}
 
-	void state_toilet_2 ()
+	void toilet_2 ()
 	{
 		text.text = "You grab the tail in your hands and it starts to wiggle back and forth. For some unknown reason to you, you start to pull the tail! Pull" +
 					"ing and pulling. How the hell long is this thing you think while your body is almost automatically continuing. Suddenly, the tail lashes" +
@@ -215,16 +217,16 @@ public class TextController : MonoBehaviour {
 					" MONEY!\" Without skipping a beat it shreaks and, just as quick as it came, crawled back into the toilet. What the actual eff.\n\n" +
 					"Down arrow:   Return to roaming";
 
-		if (Input.GetKeyDown (KeyCode.DownArrow)) {myState = States.cell_1;}
+		if 		(Input.GetKeyDown (KeyCode.DownArrow))     {myState = States.cell_1;}
 
 	}
 
-	void state_tats_1 ()
+	void tats_1 ()
 	{
 		text.text = "tats 1";
 	}
 
-	void state_freedom ()
+	void freedom ()
 	{
 		text.text = "Bright light.. Where was this cell even located? When your eyes finally adjust to the light you see...baloons?\n\n" +
 					"SURPRISE!! HAPPY BIRTHDAY JOHN!! There are alot of people there that you recognise! One of them approaches you. You think" +
@@ -233,5 +235,5 @@ public class TextController : MonoBehaviour {
 					" it a surprise. Here, have some cake!\n\n Classic mother fucking Jerry you think to yourself and grab that peice of cake." +
 					"\n\nGood thing I didn't fap it will all these people watching you think to yourself.\n\nfin";
 	}
-			
+	#endregion			
 }
